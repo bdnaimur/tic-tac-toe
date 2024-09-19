@@ -1,0 +1,186 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #51d9b7;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Board.css */
+.board {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border: 2px solid #ddd;
+  box-shadow: 10 10 100 lightslategray;
+}
+.btn-style{
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: darkgoldenrod;
+    
+}
+.winner-style{
+  background-color: #f253c2;
+  color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+  position: relative;
+}
+
+.straightLine {
+  position: absolute;
+  top: -6px;
+  left: 47px;
+  width: 100%;
+  height: 112%;
+  border-left: 4px solid #e5cdcd;
+  /* transform: rotate(45deg); */
+}
+
+.digonalLine2 {
+  position: absolute;
+  top: -65px;
+  left: -35px;
+  width: 100%;
+  height: 160%;
+  border-right: 4px solid #e5cdcd;
+  transform: rotate(45deg);
+}
+
+.digonalLine1 {
+  position: absolute;
+  top: -75px;
+  left: 30px;
+  width: 131%;
+  height: 159%;
+  border-left: 4px solid #e5cdcd;
+  transform: rotate(-45deg);
+}
+.parallelLine {
+  position: absolute;
+  top: 47px;
+  left: -6px;
+  width: 112%;
+  height: 100%;
+  border-top: 4px solid #e5cdcd;
+  /* transform: rotate(45deg); */
+}
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  /* border: 1px solid #ddd; */
+}
+
+.snake {
+  background-color: green;
+}
+
+.snake-head {
+  background-color: darkgreen;
+  position: relative; /* For positioning the eyes */
+
+  /* Add eyes using pseudo-elements */
+}
+
+.snake-head::before, 
+.snake-head::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  top: 4px;
+}
+
+.snake-head::before {
+  left: 5px; /* Position for left eye */
+}
+
+.snake-head::after {
+  right: 5px; /* Position for right eye */
+}
+
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.food {
+  background-color: red;
+  animation: blink 1s infinite; /* Makes the food blink */
+}
